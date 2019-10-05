@@ -130,3 +130,4 @@ const testRemoveDuplicates = removeDuplicates(itemsTwo, (noDup) => {
   return noDup;
 })
 console.log(testRemoveDuplicates);
+console.log(itemsTwo);
