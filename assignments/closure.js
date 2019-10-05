@@ -4,6 +4,25 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const myFavMusicians = [
+  {id: 1, Name: "The Beatles", Song: "Dear Prudence"},
+  {id: 2, Name: "Nirvana", Song: "Come as you are"},
+  {id: 3, Name: "Bob Marley", Song: "Rebel Music"},
+  {id: 4, Name: "Duke Ellington", Song: "In a sentimental mood"},
+  {id: 5, Name: "David Bowie", Song: "Space Oddity"},
+  {id: 6, Name: "The Rolling Stones", Song: "Beast of burden"}
+]
+
+let favArtistAndSong = [];
+
+favArtistAndSong = myFavMusicians.map((item) => {
+  return `${item.Name} - ${item.Song}`;
+});
+
+favArtistAndSong.forEach((item) => {
+  console.log(item);
+});
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -20,6 +39,9 @@ const counterMaker = () => {
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
+
+
+
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
