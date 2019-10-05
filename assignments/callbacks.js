@@ -98,7 +98,7 @@ function contains(item, list, cb) {
   return cb(answer, item); 
 }
 
-const testContains = contains('Pencils', items, (answer, item) => `It is ${answer} that this array contains ${item}.`);
+const testContains = contains('Pencil', items, (answer, item) => `It is ${answer} that this array contains the word '${item}'`);
 
 console.log(testContains);
 
