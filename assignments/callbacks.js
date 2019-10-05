@@ -44,7 +44,7 @@ function getLength(arr, cb) {
   return cb(arr.length);
 }
 
-const testGetLength = getLength(items, (num) => `${num} is the length of this array.`);
+const testGetLength = getLength(items, (length) => `${length} is the length of this array.`);
 console.log(testGetLength);
 
 
@@ -118,7 +118,15 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 
+
+  // A Set stores data and removes duplicates,
+  // we convert Set into an array by using Array.from() getting data
+  // from the parameter array which in this case is itemsTwo
+  let noDup = Array.from(new Set(array));
+  return cb(noDup);
 }
 
-const testRemoveDuplicates = removeDuplicates(itemsTwo, )
+const testRemoveDuplicates = removeDuplicates(itemsTwo, (noDup) => {
+  return noDup;
+})
 console.log(testRemoveDuplicates);
