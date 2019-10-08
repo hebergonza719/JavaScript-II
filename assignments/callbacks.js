@@ -38,32 +38,96 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
 
-
+//Number 1
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
 
+const testGetLength = getLength(items, (length) => `${length} is the length of this array.`);
+console.log(testGetLength);
+
+
+
+//Number 2
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
 }
 
+function lastInArray(item) {
+  return `${item} is the last item in this array.`;
+}
+
+const testLast = last(items, lastInArray);
+console.log(testLast);
+
+
+
+//Number 3
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y, x, y);
 }
+
+const testSumNums = sumNums(4, 5, (total, x, y) => {return `The sum of ${x} and ${y} is ${total}.`})
+console.log(testSumNums);
+
+
+//Number 4
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y, x, y);
 }
 
+function returnMultiResult(total, num1, num2) {
+  return `${num1} times ${num2} is ${total}.`
+}
+
+const testMultiplyNums = multiplyNums(2, 5, returnMultiResult);
+console.log(testMultiplyNums);
+
+
+
+//Number 5
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  
+  // .includes() is a function that checks if an item is in an array,
+  // then, it returns true or false
+  const answer = list.includes(item);
+  return cb(answer, item); 
 }
 
+const testContains = contains('Pencil', items, (answer, item) => `It is ${answer} that this array contains the word '${item}'`);
+
+console.log(testContains);
+
+
+
+
 /* STRETCH PROBLEM */
+
+const itemsTwo = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'yo-yo', 'Gum'];
+
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
+
+  // A Set stores data and removes duplicates,
+  // we convert Set into an array by using Array.from() getting data
+  // from the parameter array which in this case is itemsTwo
+  let noDup = Array.from(new Set(array));
+  return cb(noDup);
 }
+
+const testRemoveDuplicates = removeDuplicates(itemsTwo, (noDup) => {
+  return noDup;
+})
+console.log(testRemoveDuplicates);
+console.log(itemsTwo);
